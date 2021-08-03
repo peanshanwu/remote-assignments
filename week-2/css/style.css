@@ -1,0 +1,177 @@
+/* ================================= 
+  Base Element Styles
+==================================== */
+
+* {
+	box-sizing: border-box;
+}
+/* 
+    ---Fluid Typography---
+    html {
+    font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
+    } 
+*/
+html {
+    /* font-size: 100%; */
+    font-size: clamp(100%, 3vw, 18px);
+}
+
+body {
+	font-family: 'Crimson Text', serif;
+	line-height: 1.6;
+	margin: 0;
+    color: #090201;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+p {
+    margin: 0;
+}
+a {
+	text-decoration: none;
+    color: #090201;
+    display: inline-block;
+    padding: 0.5rem;
+    transition: 0.3s;
+}
+a:hover {
+    color: #899AAB;
+}
+img {
+	max-width: 100%;
+}
+
+/* ================================= 
+  Base Layout Styles
+==================================== */
+
+/* ---- Navigation ---- */
+
+/* ---- Layout Containers ---- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eee;
+    padding: 0 1.5rem;
+}
+.main-nav-display {
+    display: none;
+}
+.main-nav {
+    display: flex;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #CCDDEE;
+    padding: 5rem 2rem;
+}
+.banner h1 {
+    text-align: center;
+}
+
+.main-content {
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+}
+.row {
+    /* outline: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* 
+        上述： 
+        改寫在btn(item)自己center
+        不然會導致.wrap不再strech
+    */
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* ---- Page Elements ---- */
+.row h2 {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.content-box {
+    background-color: #899AAB;
+    height: 8rem;
+    text-align: center;
+    padding: 0.7rem;
+    flex-grow: 1;   /* 均分 */
+    min-width: 100%;    /* 一欄 */
+    margin-bottom: 1.3rem;
+}
+
+.btn {
+    margin: 0 auto;
+    background-color: #CCDDEE;
+    align-self: center;
+    /* 
+        上述： 
+        .row為container，btn(item)自己center
+        不然會導致其他item（如.wrap）跟著center
+        不再strech
+    */
+    transition: .4s;
+}
+.btn:hover {
+    color: white;
+    background-color: #899AAB;
+}
+
+/* ================================= 
+  Media Queries
+==================================== */
+/*** mobile first approach ***/
+
+/* 500 - 800px */
+@media screen and (min-width: 500px) {
+    /* ---- Layout Containers ---- */
+    .content-box {
+        min-width: 45%; /* 兩欄 */
+    }
+    .content-box:nth-child(odd) {
+        margin-right: 1rem;
+    }
+    /* ---- Page Elements ---- */
+    .main-nav li a {
+        padding: .8rem 1.7rem; /* 增加點擊範圍＋nav上下稍微加寬 */
+    }
+    
+}
+
+
+/* 800 - 1200px */
+@media screen and (min-width: 800px) {
+    /* ---- Layout Containers ---- */
+    .main-nav-display {
+        display: block;
+    }
+    .main-nav-ham {
+        display: none;
+    }
+}
+
+
+/* 1200px < ... */
+@media screen and (min-width: 1200px) {
+    /* ---- Layout Containers ---- */
+    .row {
+        width: 73%;
+    }
+}
