@@ -3,7 +3,7 @@
 ==================================== */
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 /* 
     ---Fluid Typography---
@@ -12,39 +12,46 @@
     } 
 */
 html {
-    /* font-size: 100%; */
-    font-size: clamp(100%, 3vw, 18px);
+  /* font-size: 100%; */
+  font-size: clamp(100%, 3vw, 18px);
+  overflow-x: hidden;
 }
 
 body {
-	font-family: 'Crimson Text', serif;
-	line-height: 1.6;
-	margin: 0;
-    color: #090201;
+  font-family: "Crimson Text", serif;
+  line-height: 1.6;
+  margin: 0;
+  color: #090201;
+  position: relative;
 }
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }
 p {
-    margin: 0;
+  margin: 0;
 }
 a {
-	text-decoration: none;
-    color: #090201;
-    display: inline-block;
-    padding: 0.5rem;
-    transition: 0.3s;
+  text-decoration: none;
+  color: #090201;
+  display: inline-block;
+  padding: 0.5rem;
+  transition: 0.3s;
 }
 a:hover {
-    color: #899AAB;
+  color: #899aab;
 }
 img {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 /* ================================= 
@@ -52,86 +59,118 @@ img {
 ==================================== */
 
 /* ---- Navigation ---- */
-
-/* ---- Layout Containers ---- */
 .main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #eee;
-    padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eee;
+  padding: 0 1.5rem;
 }
 .main-nav-display {
-    display: none;
+  display: none;
 }
 .main-nav {
-    display: flex;
+  display: flex;
 }
 
+.menu {
+  width: 50%;
+  background-color: #fff;
+  position: absolute;
+  right: -50%;
+  top: 0;
+  bottom: 0;
+  box-shadow: -3px 0 15px rgba(0, 0, 0, 0.2);
+  transition: right 0.7s ease-in-out 0.1s;
+  /* display: none; */
+}
+.menu-clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+}
+.menu-item {
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.menu-item:hover {
+  background-color: #eee;
+}
+
+/* ---- Layout Containers ---- */
 .banner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #CCDDEE;
-    padding: 5rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccddee;
+  padding: 5rem 2rem;
+}
+.banner:hover {
+  cursor: pointer;
 }
 .banner h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .main-content {
-    padding: 0 1rem;
-    margin-bottom: 2rem;
+  padding: 0 1rem 2rem;
+}
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
 }
 .row {
-    /* outline: 1px solid red; */
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    /* 
+  /* outline: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* 
         上述： 
         改寫在btn(item)自己center
         不然會導致.wrap不再strech
     */
-    margin: 0 auto;
-    max-width: 1200px;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 .wrap {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* ---- Page Elements ---- */
 .row h2 {
-    text-align: center;
-    padding: 1rem 0;
+  text-align: center;
+  padding: 1rem 0;
 }
 
 .content-box {
-    background-color: #899AAB;
-    height: 8rem;
-    text-align: center;
-    padding: 0.7rem;
-    flex-grow: 1;   /* 均分 */
-    min-width: 100%;    /* 一欄 */
-    margin-bottom: 1.3rem;
+  background-color: #899aab;
+  height: 8rem;
+  text-align: center;
+  padding: 0.7rem;
+  flex-grow: 1; /* 均分 */
+  min-width: 100%; /* 一欄 */
+  margin-bottom: 1.3rem;
 }
 
 .btn {
-    margin: 0 auto;
-    background-color: #CCDDEE;
-    align-self: center;
-    /* 
+  margin: 0 auto 1.3rem;
+  background-color: #ccddee;
+  align-self: center;
+  /* 
         上述： 
         .row為container，btn(item)自己center
         不然會導致其他item（如.wrap）跟著center
         不再strech
     */
-    transition: .4s;
+  transition: 0.4s;
 }
 .btn:hover {
-    color: white;
-    background-color: #899AAB;
+  color: white;
+  background-color: #899aab;
 }
 
 /* ================================= 
@@ -141,37 +180,32 @@ img {
 
 /* 500 - 800px */
 @media screen and (min-width: 500px) {
-    /* ---- Layout Containers ---- */
-    .content-box {
-        min-width: 45%; /* 兩欄 */
-    }
-    .content-box:nth-child(odd) {
-        margin-right: 1rem;
-    }
-    /* ---- Page Elements ---- */
-    .main-nav li a {
-        padding: .8rem 1.7rem; /* 增加點擊範圍＋nav上下稍微加寬 */
-    }
-    
+  /* ---- Layout Containers ---- */
+  .content-box {
+    min-width: 45%; /* 兩欄 */
+  }
+  .content-box:nth-child(odd) {
+    margin-right: 1rem;
+  }
+  /* ---- Page Elements ---- */
+  .main-nav li a {
+    padding: 0.8rem 1.7rem; /* 增加點擊範圍＋nav上下稍微加寬 */
+  }
 }
-
 
 /* 800 - 1200px */
 @media screen and (min-width: 800px) {
-    /* ---- Layout Containers ---- */
-    .main-nav-display {
-        display: block;
-    }
-    .main-nav-ham {
-        display: none;
-    }
+  /* ---- Layout Containers ---- */
+  .main-nav-display {
+    display: block;
+  }
+  .main-nav-ham {
+    display: none;
+  }
 }
-
 
 /* 1200px < ... */
-@media screen and (min-width: 1200px) {
-    /* ---- Layout Containers ---- */
-    .row {
-        width: 73%;
-    }
-}
+/* @media screen and (min-width: 1200px) {
+  
+  
+} */
