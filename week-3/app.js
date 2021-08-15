@@ -8,6 +8,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// static file
+app.use(express.static('public'));
+
 
 // set the engine
 app.set('view engine', 'pug');
