@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
 
 app.get('/getData', (req, res) => {
     const { number } = req.query;
+    console.log(number);
     let message = '';
     
     // console.log(number);
