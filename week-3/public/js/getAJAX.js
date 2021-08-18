@@ -1,4 +1,7 @@
-function getAjax() {
+const form = document.querySelector('form');
+form.addEventListener('submit', function (e) {
+    
+    e.preventDefault();
 
     // creat XMLHttpRequest obj
     const xhr = new XMLHttpRequest();
@@ -7,14 +10,14 @@ function getAjax() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                
+
                 const inputeValue = document.querySelector('#number');
                 const value = inputeValue.value;
-                alert(value);
+                // alert(value);
 
                 const totalText = document.querySelector('.input');
                 totalText.innerHTML = `${xhr.responseText}`;
-                alert(xhr.responseText);
+                // alert(xhr.responseText);
 
             } else {
                 alert('error status');
@@ -26,7 +29,4 @@ function getAjax() {
 
     // send a requst
     xhr.send();
-};
-
-const form = document.querySelector('form');
-form.addEventListener('submit', getAjax);
+}, false);

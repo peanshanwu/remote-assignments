@@ -22,10 +22,9 @@ app.get('/', (req, res) => {
 
 app.get('/getData', (req, res) => {
     const { number } = req.query;
-    console.log(number);
+    // console.log(number);
     let message = '';
     
-    // console.log(number);
     let total = 0;
     const r = /^[0-9]*[1-9][0-9]*$/; // 正規式：正整數
     const integer = r.test(number);  // 回傳true false
