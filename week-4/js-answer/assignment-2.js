@@ -61,7 +61,7 @@ function render(data) {
 
 }
 
-ajax("http://13.230.176.178:4000/api/1.0/remote-w4-data",
+ajax(" https://appworks-school.github.io/Remote-Aassigiment-Data/products",
 	function (response) {
 render(response);
 });
