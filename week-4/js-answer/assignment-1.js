@@ -1,5 +1,5 @@
 function delayedResult(n1, n2, delayTime, callback) {
-  window.setTimeout(callback(n1 + n2), delayTime);
+  window.setTimeout(()=> callback(n1 + n2), delayTime);
 };
 
 delayedResult(4, 5, 3000, function(result){
